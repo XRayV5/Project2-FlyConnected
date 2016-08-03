@@ -1,0 +1,47 @@
+https://www.google.com/maps/embed/v1/view
+  ?key=AIzaSyCfxI8a5U-lL1vQiOWBIkowev5IM89MJf8
+  &center=-33.8569,151.2152
+  &zoom=18
+  &maptype=satellite
+
+
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/view
+  ?key=AIzaSyCfxI8a5U-lL1vQiOWBIkowev5IM89MJf8
+  &center=-33.8569,151.2152
+  &zoom=18
+  &maptype=satellite" allowfullscreen>
+</iframe>
+
+
+
+
+
+
+@actualdeparturetime=0, @aircrafttype="F2TH", @destination="KSMO",
+@destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni",
+@estimatedarrivaltime=1469566800, @filed_departuretime=1469563560, @ident="EJA221",
+@origin="KLAX", @originCity="Los Angeles, CA", @originName="Los Angeles Intl">,
+
+#<EnrouteFlightStruct:0x00000002a8bbd0 @actualdeparturetime=0, @aircrafttype="C650",
+@destination="KSMO", @destinationCity="Santa Monica, CA",
+@destinationName="Santa Monica Muni", @estimatedarrivaltime=1469578320,
+@filed_departuretime=1469570760, @ident="EJA378", @origin="KAPA",
+@originCity="Denver, CO", @originName="Centennial">,
+
+#<EnrouteFlightStruct:0x00000002a8bba8 @actualdeparturetime=1469581320,
+@aircrafttype="BE36", @destination="KSMO",
+@destinationCity="Santa Monica, CA",
+@destinationName="Santa Monica Muni",
+@estimatedarrivaltime=1469583951,
+@filed_departuretime=1469580000,
+@ident="N403SA", 
+@origin="KBFL",
+@originCity="Bakersfield, CA",
+@originName="Meadows Field">,
+
+#<EnrouteFlightStruct:0x00000002a8bb80 @actualdeparturetime=0, @aircrafttype="BE30", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469586479, @filed_departuretime=1469581800, @ident="GAJ801", @origin="KOAK", @originCity="Oakland, CA", @originName="Metropolitan Oakland Intl">, #<EnrouteFlightStruct:0x00000002a8bb30 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469588040, @filed_departuretime=1469586960, @ident="EJA689", @origin="KSJC", @originCity="San Jose, CA", @originName="San Jose Int'l">, #<EnrouteFlightStruct:0x00000002a8bb08 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469633130, @filed_departuretime=1469629680, @ident="N881VP", @origin="KSFO", @originCity="San Francisco, CA", @originName="San Francisco Intl">, #<EnrouteFlightStruct:0x00000002a8bae0 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469645648, @filed_departuretime=1469628600, @ident="N1837S", @origin="KHND", @originCity="Las Vegas, NV", @originName="Henderson Executive">, #<EnrouteFlightStruct:0x00000002a8ba90 @actualdeparturetime=0, @aircrafttype="GLF4", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469649960, @filed_departuretime=1469637360, @ident="N426QS", @origin="KSTL", @originCity="St Louis, MO", @originName="Lambert-St Louis Intl">, #<EnrouteFlightStruct:0x00000002a8ba68 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469652840, @filed_departuretime=1469641680, @ident="EJA693", @origin="KTME", @originCity="Houston, TX", @originName="Houston Executive">, #<EnrouteFlightStruct:0x00000002a8ba40 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469652840, @filed_departuretime=1469641680, @ident="EJA656", @origin="KTME", @originCity="Houston, TX", @originName="Houston Executive">, #<EnrouteFlightStruct:0x00000002a8ba18 @actualdeparturetime=0, @aircrafttype="GLF4", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469657700, @filed_departuretime=1469640060, @ident="N445QS", @origin="KIAD", @originCity="Washington, DC", @originName="Washington Dulles Intl">], @next_offset=-1>

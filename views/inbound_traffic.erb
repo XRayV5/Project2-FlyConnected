@@ -1,0 +1,36 @@
+
+<%require 'date'%>
+<h1>Inbound Flights For <%=@incoming.enrouteResult.enroute[0].destinationName%></h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Aircraft Type/ID</th>
+      <th scope="col">Origin</th>
+      <th scope="col">ICAO</th>
+      <th scope="col">Destination Name</th>
+      <th scope="col">Filed Departuretime</th>
+      <th scope="col">Estimated Arrivaltime</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<%@incoming.enrouteResult.enroute.each do |flight|%>
+      <%= "<tr>
+            <td>
+              <strong class='book-title'>#{flight.aircrafttype}</strong>
+              <span class='text-offset'>#{flight.ident}</span>
+            </td>
+            <td class='item-stock'>
+              <strong class='book-title'><a href='/orgin_detail/#{flight.origin}'>#{flight.originName}</a></strong>
+              <span class='text-offset'>#{flight.originCity}</span>
+            </td>
+            <td class='item-stock'>#{flight.origin}</a></td>
+            <td class='item-qty'>
+              <strong class='book-title'>#{flight.destinationName}</strong>
+              <span class='text-offset'>#{flight.destinationCity}</span>
+            </td>
+            <td class='item-stock'>#{Time.at(flight.filed_departuretime)}</td>
+            <td class='item-qty'>#{Time.at(flight.estimatedarrivaltime)}</td>
+          </tr>"%>
+    <%end%>
+  </tbody>

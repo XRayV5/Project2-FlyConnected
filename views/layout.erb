@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Ray-Dare</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="/bootstrap-3.3.7-dist/css/custom.css" rel="stylesheet" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+  <!-- jquery UI -->
+  <link href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+  <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <script src="/javascripts/application.js"></script>
+  <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+
+      <ul class="navigation_sidebar">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">Portfolio</a></li>
+        <li class="nav-item"><a href="#">About</a></li>
+        <li class="nav-item"><a href="#">Blog</a></li>
+        <li class="nav-item"><a href="#">Contact</a></li>
+      </ul>
+
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger"></label>
+
+      <!-- Button trigger modal -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Join us and fly connected!</h4>
+            </div>
+            <div class="modal-body">
+<!-- Signup form -->
+              <form class="form-horizontal" action="/session/signup" method="post" name="signup_form">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Nick Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="nickname" class="form-control" id="inputEmail3" placeholder="What do you want us to call you?">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="cpassword" class="form-control" id="inputPassword3" placeholder="Confirm Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> Remember me
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<div class="site-wrap">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div id="logo"><a class="navbar-brand"><h1>Fly Connected</h1></a></div>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <!-- <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form> -->
+
+        <!-- The drop down menu -->
+        <ul class="nav pull-right">
+
+          <%if !logged_in?%>
+            <li><a href="" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+              <div class="dropdown-menu" style="padding: 15px; padding-bottom: 15px;">
+  <!-- Login form here -->
+                <form action="/session/login" method="post" accept-charset="UTF-8">
+                  <label for="">Email:</label>
+                  <input id="user_username" style="margin-bottom: 15px;" type="text" name="email" size="30" />
+                  <label for="">Password:</label>
+                  <input id="user_password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
+                  <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="remember_me" value="1" />
+                  <label class="string optional" for="user_remember_me"> Remember me</label>
+
+                  <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
+                </form>
+              </div>
+            </li>
+            <!--  dropdown-toggle-->
+          <%else%>
+          <li><a href="/session/logout" data-toggle="" data-target="">Logout</a></li>
+          <li class="divider-vertical"></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><strong class="caret"></strong></a>
+            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 15px;">
+<!-- Login form here -->
+              <form action="/session/login" method="post" accept-charset="UTF-8">
+                <label for="">Email:</label>
+                <input id="user_username" style="margin-bottom: 15px;" type="text" name="email" size="30" />
+                <label for="">Password:</label>
+                <input id="user_password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
+                <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="remember_me" value="1" />
+                <label class="string optional" for="user_remember_me"> Remember me</label>
+
+                <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
+              </form>
+            </div>
+          </li>
+
+          <%end%>
+        </ul>
+
+      </div>
+    </div>
+
+  </nav>
+
+
+
+
+
+  <%= yield %>
+</div>
+
+</body>
+</html>

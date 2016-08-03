@@ -1,0 +1,38 @@
+
+<h2>Search Result for Flight: <%=@flt_result.flightInfoResult.flights[0].ident%></h2>
+<div class="arpt_tab">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Flight</th>
+          <th scope="col">Aircraft Type</th>
+          <th scope="col">Origin</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Time of Departure</th>
+          <th scope="col">Estimated Time of Arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+
+    <%@flt_result.flightInfoResult.flights.each do |flight|%>
+          <%= "<tr>
+                <td><strong class='book-title'>#{flight.ident}</strong></td>
+                <td class='item-stock'>#{flight.aircrafttype}</td>
+                <td>
+                  <strong class='book-title'>#{flight.originName}(#{flight.origin})</strong>
+                  <span class='text-offset'>#{flight.destinationCity}</span>
+                </td>
+                <td>
+                  <strong class='book-title'>#{flight.destinationName}</strong>
+                  <span class='text-offset'>#{flight.destination}</span>
+                </td>
+                <td class='item-stock'>#{Time.at(flight.actualdeparturetime)}</td>
+                <td class='item-qty'>#{Time.at(flight.estimatedarrivaltime)}</td>
+                <td class='item-stock'>#{flight.filed_ete}</td>
+                <td class='item-qty'><a href='/flt_detail/#{flight.ident}'>Detail</a></td>
+              </tr>"%>
+        <%end%>
+      </tbody>
+</table>
+</div>
+</table>

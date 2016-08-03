@@ -1,0 +1,35 @@
+
+
+
+<%filter = @arpt_result.first[@flag]%>
+
+<h2>Search Result for Airports: <%=filter%></h2>
+<div class="arpt_tab">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Airport/City</th>
+          <th scope="col">Country</th>
+          <th scope="col">ICAO</th>
+          <th scope="col">Timezone</th>
+          <th scope="col">Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+
+    <%@arpt_result.each do |airport|%>
+          <%= "<tr>
+                <td>
+                  <strong class='book-title'>#{airport['name']}</strong>
+                  <span class='text-offset'>#{airport['city']}</span>
+                </td>
+                <td class='item-stock'>#{airport['country']}</td>
+                <td class='item-qty'>#{airport['icao']}</td>
+                <td class='item-stock'>#{airport['timezone']}</td>
+                <td class='item-qty'><a href='/arpt_detail/#{airport.id}'>Detail</a></td>
+              </tr>"%>
+        <%end%>
+      </tbody>
+</table>
+</div>
+</table>

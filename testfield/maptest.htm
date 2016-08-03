@@ -1,0 +1,225 @@
+<body>
+  <script type="text/javascript">
+      $(function() {
+    // Setup drop down menu
+    $('.dropdown-toggle').dropdown();
+
+    // Fix input element click problem
+    $('.dropdown input, .dropdown label').click(function(e) {
+      e.stopPropagation();
+    });
+    });
+  </script>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container"><!-- Collapsable nav bar -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <!-- Your site name for the upper left corner of the site -->
+        <a class="brand">My Site</a>
+
+        <!-- Start of the nav bar content -->
+        <div class="nav-collapse"><!-- Other nav bar content -->
+
+          <!-- The drop down menu -->
+          <ul class="nav pull-right">
+            <li><a href="/users/sign_up">Sign Up</a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+              <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                <!-- Login form here -->
+                <form action="[YOUR ACTION]" method="post" accept-charset="UTF-8">
+                  <input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" />
+                  <input id="user_password" style="margin-bottom: 15px;" type="password" name="user[password]" size="30" />
+                  <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
+                  <label class="string optional" for="user_remember_me"> Remember me</label>
+
+                  <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styling the Base Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+    </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initialize() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: new google.maps.LatLng(-33.91722, 151.23064),
+          mapTypeId: 'roadmap',
+          styles: [
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [
+                { color: '#000000' },
+                { weight: 1.6 }
+              ]
+            }, {
+              featureType: 'road',
+              elementType: 'labels',
+              stylers: [
+                { saturation: -100 },
+                { invert_lightness: true }
+              ]
+            }, {
+              featureType: 'landscape',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#ffff00' },
+                { gamma: 1.4 },
+                { saturation: 82 },
+                { lightness: 96 }
+              ]
+            }, {
+              featureType: 'poi.school',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#fff700' },
+                { lightness: -15 },
+                { saturation: 99 }
+              ]
+            }, {
+              featureType: 'poi',
+              elementType: 'geometry',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }, {
+              featureType: 'poi.school',
+              elementType: 'geometry',
+              stylers: [
+                { visibility: 'on' },
+                { hue: '#fff700' },
+                { lightness: -15 },
+                { saturation: 99 }
+              ]
+            }
+          ]
+        });
+
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot_maps.png'
+          },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+
+        function addMarker(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        }
+
+        var features = [
+          {
+            position: new google.maps.LatLng(-33.91721, 151.22630),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91539, 151.22820),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91747, 151.22912),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91910, 151.22907),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91725, 151.23011),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91872, 151.23089),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91784, 151.23094),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91682, 151.23149),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91790, 151.23463),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91666, 151.23468),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.916988, 151.233640),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91662347903106, 151.22879464019775),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.916365282092855, 151.22937399734496),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91665018901448, 151.2282474695587),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.919543720969806, 151.23112279762267),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91608037421864, 151.23288232673644),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91851096391805, 151.2344058214569),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91818154739766, 151.2346203981781),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91727341958453, 151.23348314155578),
+            type: 'library'
+          }
+        ];
+
+        for (var i = 0, feature; feature = features[i]; i++) {
+          addMarker(feature);
+        }
+      }
+
+    </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfxI8a5U-lL1vQiOWBIkowev5IM89MJf8&callback=initialize">
+    </script>
+  </body>
+</html>

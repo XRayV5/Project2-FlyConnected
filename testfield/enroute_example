@@ -1,0 +1,81 @@
+
+#<FlightInfoStruct:0x007ff6ac3d21d8
+@flights=[#<FlightStruct:0x007ff6ac3d2138 @actualarrivaltime=0,
+@actualdeparturetime=1470097560,
+@aircrafttype="A332",
+@destination="ZSPD",
+@destinationCity="Shanghai CN",
+@destinationName="Shanghai Pudong Int'l",
+@diverted="",
+@estimatedarrivaltime=1470134460,
+@filed_airspeed_kts=468,
+@filed_airspeed_mach="",
+@filed_altitude=320,
+@filed_departuretime=1470098100,
+@filed_ete="10:07:00",
+@filed_time=1469942886,
+@ident="CCA178",
+@origin="YMML",
+@originCity="Melbourne, Victoria AU",
+@originName="Melbourne Tullamarine",
+@route="DCT KEPPA UH336 NATYA/N0468F340 J19 BHI T25 GUGAB/N0471F360 T25 PULOL/N0466F380 T25 TNK J30 TN DCT FERGI DCT STOES DCT ALLEE DCT VEGPU DCT ITTSA DCT DN A461 AMN R590 COT B472 LIP DCT CARMO DCT MIA/N0469F370 A461 CAB/N0466F380 A461 NOMAN DCT SOUSA/N0473F370 V1 DOTMI/K0875S1130 A470 LJG B221 SHZ W58">,
+
+#<FlightStruct:0x007ff6ac3d2110 @actualarrivaltime=1470051360, @actualdeparturetime=1470012600, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1470052080, @filed_airspeed_kts=474, @filed_airspeed_mach="", @filed_altitude=300, @filed_departuretime=1470011700, @filed_ete="10:36:00", @filed_time=1469856464, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT ML H50 MNG Q76 TOBOB/N0468F360 Q76 NONUM DCT KIMMI/N0465F380 R204 KEITH/N0468F370 A339 SABGU/N0466F380 G339 HKC DCT HONDO DCT OLE V40 FUE A593 POTET/N0492F280 A593 ONIKU/N0487F300 A593">, #<FlightStruct:0x007ff6ac3d20e8 @actualarrivaltime=1469875320, @actualdeparturetime=1469838540, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1469875320, @filed_airspeed_kts=470, @filed_airspeed_mach="", @filed_altitude=340, @filed_departuretime=1469838900, @filed_ete="10:03:00", @filed_time=1469683681, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT KEPPA UH336 NATYA J19 BHI T25 POLEV/N0470F360 T25 TNK J30 TN J251 DN A461 AMN/N0465F380 R590 COT B472 LIP DCT CARMO DCT MIA/N0470F370 A461 CAB/N0467F380 A461 NOMAN DCT SOUSA/N0469F370 V1 DOTMI/K0869S1130 A470 LJG B221 SHZ W58">, #<FlightStruct:0x007ff6ac3d1ff8 @actualarrivaltime=1469703540, @actualdeparturetime=1469666040, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1469703540, @filed_airspeed_kts=459, @filed_airspeed_mach="", @filed_altitude=360, @filed_departuretime=1469666100, @filed_ete="10:09:00", @filed_time=1469510979, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT KEPPA UH336 NATYA J19 BHI T25 TNK/N0464F380 J30 TN J251 DN A461 AMN R590 COT B472 LIP DCT CARMO DCT MIA/N0469F370 A461 CAB/N0466F380 A461 NOMAN DCT SOUSA/N0468F370 V1 DOTMI/K0867S1130 A470 LJG B221 SHZ W58">, #<FlightStruct:0x007ff6ac3d1fd0 @actualarrivaltime=1469532420, @actualdeparturetime=1469493480, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1469532420, @filed_airspeed_kts=462, @filed_airspeed_mach="", @filed_altitude=360, @filed_departuretime=1469493300, @filed_ete="10:33:00", @filed_time=1469338073, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT KEPPA UH336 NATYA J19 BHI T25 SAPED/N0467F380 T25 TNK J30 TN J251 DN A461 AMN R590 COT B472 LIP DCT CARMO DCT MIA/N0468F370 A461 CAB/N0466F380 A461 NOMAN DCT SOUSA/N0468F370 V1 DOTMI/K0868S1130 A470 LJG B221 SHZ W58">, #<FlightStruct:0x007ff6ac3d1fa8 @actualarrivaltime=1469445644, @actualdeparturetime=1469407260, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1469445660, @filed_airspeed_kts=461, @filed_airspeed_mach="", @filed_altitude=360, @filed_departuretime=1469406900, @filed_ete="10:23:00", @filed_time=1469251695, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT KEPPA UH336 NATYA J19 BHI T25 SAPED/N0465F380 T25 TNK J30 TN J251 DN A461 AMN R590 COT B472 LIP DCT CARMO DCT MIA/N0469F370 A461 CAB/N0467F380 A461 NOMAN DCT SOUSA/N0469F370 V1 DOTMI/K0869S1130 A470 LJG B221 SHZ W58">, #<FlightStruct:0x007ff6ac3d1f58 @actualarrivaltime=1469272380, @actualdeparturetime=1469235060, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1469272380, @filed_airspeed_kts=470, @filed_airspeed_mach="", @filed_altitude=340, @filed_departuretime=1469234100, @filed_ete="10:17:00", @filed_time=1469078879, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT KEPPA UH336 NATYA/N0469F360 J19 BHI T25 TNK/N0464F380 J30 TN J251 DN A461 AMN R590 COT B472 LIP DCT CARMO DCT MIA/N0469F370 A461 CAB/N0466F380 A461 NOMAN DCT SOUSA/N0468F370 V1 DOTMI/K0868S1130 A470 LJG B221 SHZ W58">, #<FlightStruct:0x007ff6ac3d1f30 @actualarrivaltime=1469099280, @actualdeparturetime=1469061660, @aircrafttype="A330", @destination="ZSPD", @destinationCity="Shanghai CN", @destinationName="Shanghai Pudong Int'l", @diverted="", @estimatedarrivaltime=1469099280, @filed_airspeed_kts=471, @filed_airspeed_mach="", @filed_altitude=360, @filed_departuretime=1469061300, @filed_ete="10:06:00", @filed_time=1468906102, @ident="CCA178", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine", @route="DCT KEPPA UH336 NATYA J19 BHI T25 PULOL/N0464F380 T25 TNK J30 TN J251 DN A461 AMN R590 COT B472 LIP DCT CARMO DCT MIA/N0467F370 A461 CAB/N0465F380 A461 NOMAN DCT SOUSA/N0468F370 V1 DOTMI/K0868S1130 A470 LJG B221 SHZ W58">], @next_offset=-1>
+
+
+
+
+
+
+
+
+
+
+https://www.google.com/maps/embed/v1/view
+  ?key=AIzaSyCfxI8a5U-lL1vQiOWBIkowev5IM89MJf8
+  &center=-33.8569,151.2152
+  &zoom=18
+  &maptype=satellite
+
+
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/view
+  ?key=AIzaSyCfxI8a5U-lL1vQiOWBIkowev5IM89MJf8
+  &center=-33.8569,151.2152
+  &zoom=18
+  &maptype=satellite" allowfullscreen>
+</iframe>
+
+
+
+
+
+
+@actualdeparturetime=0, @aircrafttype="F2TH", @destination="KSMO",
+@destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni",
+@estimatedarrivaltime=1469566800, @filed_departuretime=1469563560, @ident="EJA221",
+@origin="KLAX", @originCity="Los Angeles, CA", @originName="Los Angeles Intl">,
+
+#<EnrouteFlightStruct:0x00000002a8bbd0 @actualdeparturetime=0, @aircrafttype="C650",
+@destination="KSMO", @destinationCity="Santa Monica, CA",
+@destinationName="Santa Monica Muni", @estimatedarrivaltime=1469578320,
+@filed_departuretime=1469570760, @ident="EJA378", @origin="KAPA",
+@originCity="Denver, CO", @originName="Centennial">,
+
+#<EnrouteFlightStruct:0x00000002a8bba8
+@actualdeparturetime=1469581320,
+@aircrafttype="BE36", @destination="KSMO",
+@destinationCity="Santa Monica, CA",
+@destinationName="Santa Monica Muni",
+@estimatedarrivaltime=1469583951,
+@filed_departuretime=1469580000,
+@ident="N403SA",
+@origin="KBFL",
+@originCity="Bakersfield, CA",
+@originName="Meadows Field">,
+
+#<EnrouteFlightStruct:0x00000002a8bb80 @actualdeparturetime=0, @aircrafttype="BE30", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469586479, @filed_departuretime=1469581800, @ident="GAJ801", @origin="KOAK", @originCity="Oakland, CA", @originName="Metropolitan Oakland Intl">, #<EnrouteFlightStruct:0x00000002a8bb30 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469588040, @filed_departuretime=1469586960, @ident="EJA689", @origin="KSJC", @originCity="San Jose, CA", @originName="San Jose Int'l">, #<EnrouteFlightStruct:0x00000002a8bb08 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469633130, @filed_departuretime=1469629680, @ident="N881VP", @origin="KSFO", @originCity="San Francisco, CA", @originName="San Francisco Intl">, #<EnrouteFlightStruct:0x00000002a8bae0 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469645648, @filed_departuretime=1469628600, @ident="N1837S", @origin="KHND", @originCity="Las Vegas, NV", @originName="Henderson Executive">, #<EnrouteFlightStruct:0x00000002a8ba90 @actualdeparturetime=0, @aircrafttype="GLF4", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469649960, @filed_departuretime=1469637360, @ident="N426QS", @origin="KSTL", @originCity="St Louis, MO", @originName="Lambert-St Louis Intl">, #<EnrouteFlightStruct:0x00000002a8ba68 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469652840, @filed_departuretime=1469641680, @ident="EJA693", @origin="KTME", @originCity="Houston, TX", @originName="Houston Executive">, #<EnrouteFlightStruct:0x00000002a8ba40 @actualdeparturetime=0, @aircrafttype="C56X", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469652840, @filed_departuretime=1469641680, @ident="EJA656", @origin="KTME", @originCity="Houston, TX", @originName="Houston Executive">, #<EnrouteFlightStruct:0x00000002a8ba18 @actualdeparturetime=0, @aircrafttype="GLF4", @destination="KSMO", @destinationCity="Santa Monica, CA", @destinationName="Santa Monica Muni", @estimatedarrivaltime=1469657700, @filed_departuretime=1469640060, @ident="N445QS", @origin="KIAD", @originCity="Washington, DC", @originName="Washington Dulles Intl">], @next_offset=-1>

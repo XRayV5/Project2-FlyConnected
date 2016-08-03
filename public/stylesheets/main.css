@@ -1,0 +1,147 @@
+
+
+
+
+
+/* Additional non-critical styles */
+
+/*h1, h3, p {
+  max-width: 600px;
+  margin: 0 auto 1em;
+}*/
+
+code {
+	padding: 2px;
+	background: #ddd;
+}
+
+/* Micro reset */
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
+
+/*Google Map*/
+#map {
+  width: 40%;
+  height: 400px;
+  float: left;
+}
+.spec_ap {
+  width: 40%;
+  height: 400px;
+  float:left;
+}
+
+/*Fixed Navbar*/
+div#fixedheader {
+	position:fixed;
+	top:0px;
+	/*left:0px;*/
+	width:100%;
+  margin: auto;
+	color:#CCC;
+	background:#068fde;
+	padding:0 20px;
+  z-index: 1;
+}
+div#fixedfooter {
+	/*position:fixed;*/
+	bottom:0px;
+	left:0px;
+	width:100%;
+	color:#CCC;
+	background:#068fde;
+	padding:8px;
+}
+
+
+
+/*logo title*/
+
+
+
+/*Render the search tab*/
+
+
+/*Render the data table*/
+.enroute{
+  clear:both;
+}
+
+fieldset{
+  height: 1300px;
+  margin-bottom: 20px;
+}
+
+.arpt_tab {
+  width: 85%;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+th,
+td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+thead {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+th:first-child {
+  border-top-left-radius: 5px;
+  text-align: left;
+}
+th:last-child {
+  border-top-right-radius: 5px;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+.book-title {
+  color: #395870;
+  display: block;
+}
+.text-offset {
+  color: #7c7c80;
+  font-size: 12px;
+}
+.item-stock,
+.item-qty {
+  text-align: center;
+}
+.item-price {
+  text-align: right;
+}
+.item-multiple {
+  display: block;
+}
+tfoot {
+  text-align: right;
+}
+tfoot tr:last-child {
+  background: #f0f0f2;
+  color: #395870;
+  font-weight: bold;
+}
+tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
