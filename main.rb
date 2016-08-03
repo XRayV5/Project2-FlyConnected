@@ -51,23 +51,19 @@ end
 enable :sessions
 
 post '/session/login' do
+  @login_flag = true
   theUser = User.find_by(email: params[:email])
   if theUser&&theUser.authenticate(params[:password])
     session[:user_id] = theUser.id
     redirect to '/'
   else
-    erb :fail
+    @login_flag = false
+    erb :index
   end
 end
 
 
-get '/play' do
-  if request.xhr?
-    %q{<h1 class="blue">Hello! <a href="/">back</a></h1>}
-  else
-    "<h1>Not an Ajax request!</h1>"
-  end
-end
+
 
 
 post '/session/signup' do
@@ -110,13 +106,21 @@ end
 
 get '/flt_filter' do
     callsign = params['flt_code']
-    if callsign != nil
+    airline = params['flt_Airline']
+    des_city = params['flt_destin']
+    ori_city = params['flt_origin']
+    if callsign != ""
       @flt_result = flt_awr.FlightInfo(FlightInfoRequest.new(15,callsign))
       records = @flt_result.flightInfoResult.flights
       # binding.pry
       insert_flight(records)
+          erb :flights_view
+    elsif des_city != "" && ori_city != ""
+      @destinSch_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_destin],'airline', 15, 0 ))
+      @originSch_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_origin], 'airline', 15, 0 ))
+      erb :route_view
     end
-    erb :flights_view
+
 end
 
 get '/arpt_detail/:id' do

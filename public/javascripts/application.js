@@ -1,9 +1,21 @@
-$(document).ready(function(){
-  $("button").click(function(){
-    $("#div1").load("/play",function(responseTxt,statusTxt,xhr){
-      /* if(statusTxt=="success") alert("External content loaded successfully!"); */
-      if(statusTxt=="error")
-        alert("Error: "+xhr.status+": "+xhr.statusText);
-    });
-  });
+function checkPasswordMatch() {
+    var password = $("#npw").val();
+    var confirmPassword = $("#cpw").val();
+    if (password !== confirmPassword){
+
+        $(".pwcheck1").html("");
+        $(".pwcheck").html("Passwords do not match!");
+        //
+        // console.log("???");
+
+      }
+    else{
+        $(".pwcheck").html("");
+        $(".pwcheck1").html("Passwords match.");
+        // $(".pwcheck").remove();
+      }
+}
+
+$(document).ready(function () {
+   $("#cpw").keyup(checkPasswordMatch);
 });

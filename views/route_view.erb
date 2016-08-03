@@ -1,0 +1,83 @@
+<%require 'date'%>
+<h1>Inbound Flights For <%=@destinSch_result.scheduledResult.scheduled[0].destinationName%></h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Aircraft Type/ID</th>
+      <th scope="col">Origin</th>
+      <th scope="col">ICAO</th>
+      <th scope="col">Destination Name</th>
+      <th scope="col">filed_departuretime</th>
+      <th scope="col">estimatedarrivaltime</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<%@originSch_result.scheduledResult.scheduled.each do |flight|%>
+  <%= "<tr>
+        <td>
+          <strong class='book-title'>#{flight.aircrafttype}</strong>
+          <span class='text-offset'>#{flight.ident}</span>
+        </td>
+        <td class='item-stock'>
+          <strong class='book-title'><a href='/orgin_detail/#{flight.origin}'>#{flight.originName}</a></strong>
+          <span class='text-offset'>#{flight.originCity}</span>
+        </td>
+        <td class='item-stock'>#{flight.origin}</a></td>
+        <td class='item-qty'>
+          <strong class='book-title'>#{flight.destinationName}</strong>
+          <span class='text-offset'>#{flight.destinationCity}</span>
+        </td>
+        <td class='item-stock'>#{Time.at(flight.filed_departuretime)}</td>
+        <td class='item-stock'>#{Time.at(flight.estimatedarrivaltime)}</td>
+      </tr>"%>
+    <%end%>
+  </tbody>
+
+  <h1>Departed Flights From <%=@originSch_result.scheduledResult.scheduled[0].destinationName%></h1>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Aircraft Type/ID</th>
+        <th scope="col">Origin</th>
+        <th scope="col">ICAO</th>
+        <th scope="col">Destination Name</th>
+        <th scope="col">filed_departuretime</th>
+        <th scope="col">estimatedarrivaltime</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- scheduled	ScheduledFlightStruct()
+      aircrafttype	string	aircraft type ID
+      destination	string	the destination ICAO airport ID
+      destinationCity	string
+      destinationName	string
+      estimatedarrivaltime	int	estimated time of arrival (seconds since 1970)
+      filed_departuretime	int	filed time of departure (seconds since 1970)
+      ident	string	flight ident or tail number
+      origin	string	the origin ICAO airport ID
+      originCity	string
+      originName	string -->
+
+
+  <%@destinSch_result.scheduledResult.scheduled.each do |flight|%>
+        <%= "<tr>
+              <td>
+                <strong class='book-title'>#{flight.aircrafttype}</strong>
+                <span class='text-offset'>#{flight.ident}</span>
+              </td>
+              <td class='item-stock'>
+                <strong class='book-title'><a href='/orgin_detail/#{flight.origin}'>#{flight.originName}</a></strong>
+                <span class='text-offset'>#{flight.originCity}</span>
+              </td>
+              <td class='item-stock'>#{flight.origin}</a></td>
+              <td class='item-qty'>
+                <strong class='book-title'>#{flight.destinationName}</strong>
+                <span class='text-offset'>#{flight.destinationCity}</span>
+              </td>
+              <td class='item-stock'>#{Time.at(flight.filed_departuretime)}</td>
+              <td class='item-stock'>#{Time.at(flight.estimatedarrivaltime)}</td>
+            </tr>"%>
+      <%end%>
+    </tbody>

@@ -5,11 +5,6 @@
     } );
   </script>
 
-
-  <div id="div1">
-  <h2 class="pink">Let jQuery AJAX Change This Text</h2>
-  <button>Get External Content</button>
-  </div>
   <div id="tabs">
     <ul>
       <li><a href="#tabs-1">Airport</a></li>
@@ -46,7 +41,7 @@
         <form action="/flt_filter" method="get">
           <fieldset>
              <legend>Search Flight</legend>
-             <p>
+             <!-- <p> -->
                 <!-- <label>Select Search Option</label>
                 <select id = "search_opt">
                   <option value = "country">Country</option>
@@ -54,7 +49,7 @@
                   <option value = "icao">ICAO</option>
                 </select>
                 <input type="text" name="query"> -->
-                <div>
+                <!-- <div>
                   <label for="">Origin</label>
                   <input type="text" name='flt_origin'>
                   <label for="">Destination</label>
@@ -67,12 +62,43 @@
                   <input type="text" name='flt_Airline'>
                   <button>Search</button>
                 </div>
-             </p>
+             </p> -->
+             <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Origin</label>
+               <div class="col-sm-10">
+                 <input type="text" name='flt_origin' class="form-control"  placeholder="Origin City">
+               </div>
+             </div>
+             <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Destination</label>
+               <div class="col-sm-10">
+                 <input type="text" name='flt_destin' class="form-control" placeholder="Destination City">
+               </div>
+             </div>
+             <div class="form-group">
+               <label for="inputPassword3" class="col-sm-2 control-label">Flight Number</label>
+               <div class="col-sm-10">
+                 <input id="npw" type="text" name='flt_code' class="form-control" placeholder="Flight Number e.g QFA494">
+               </div>
+             </div>
+             <div class="form-group">
+               <label for="inputPassword3" class="col-sm-2 control-label">Airline</label>
+               <div class="col-sm-10">
+                 <input id="cpw" type="text" name="flt_Airline" class="form-control" placeholder="Airline">
+               </div>
+             </div>
+             <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-10">
+                 <button type="submit" class="btn btn-default">Search</button>
+               </div>
+             </div>
+
           </fieldset>
         </form>
       </div>
 
     </div>
+
     <div id="tabs-3">
 
       <form class="form-horizontal">

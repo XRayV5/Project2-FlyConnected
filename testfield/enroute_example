@@ -1,3 +1,10 @@
+#<DepartureStruct:0x007fa1843dab58
+@departures=[#<DepartureFlightStruct:0x007fa1843dab08 @actualarrivaltime=1470164760, @actualdeparturetime=1470161280, @aircrafttype="B734", @destination="YPAD", @destinationCity="Adelaide, South Australia AU", @destinationName="Adelaide Int'l", @estimatedarrivaltime=1470164760, @ident="TFR36", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine">, #<DepartureFlightStruct:0x007fa1843daae0 @actualarrivaltime=1470174266, @actualdeparturetime=1470161100, @aircrafttype="B734", @destination="YPPH", @destinationCity="Redcliffe, Western Australia AU", @destinationName="Perth Int'l", @estimatedarrivaltime=1470174240, @ident="TFR12", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine">, #<DepartureFlightStruct:0x007fa1843daab8 @actualarrivaltime=1470162600, @actualdeparturetime=1470155520, @aircrafttype="B733", @destination="YBBN", @destinationCity="Brisbane, Queensland AU", @destinationName="Brisbane", @estimatedarrivaltime=1470163020, @ident="TFR92", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine">, #<DepartureFlightStruct:0x007fa1843daa90 @actualarrivaltime=1470156592, @actualdeparturetime=1470149580, @aircrafttype="B734", @destination="YBBN", @destinationCity="Brisbane, Queensland AU", @destinationName="Brisbane", @estimatedarrivaltime=1470156600, @ident="TFR23", @origin="YMML", @originCity="Melbourne, Victoria AU", @originName="Melbourne Tullamarine">], @next_offset=-1>
+
+
+
+
+
 
 #<FlightInfoStruct:0x007ff6ac3d21d8
 @flights=[#<FlightStruct:0x007ff6ac3d2138 @actualarrivaltime=0,

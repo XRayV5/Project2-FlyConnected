@@ -15,9 +15,9 @@
   <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+<script>
 
-
-
+</script>
 
       <ul class="navigation_sidebar">
         <li class="nav-item"><a href="#">Home</a></li>
@@ -42,7 +42,7 @@
             </div>
             <div class="modal-body">
 <!-- Signup form -->
-              <form class="form-horizontal" action="/session/signup" method="post" name="signup_form">
+              <form id="regis_form" class="form-horizontal" action="/session/signup" method="post" name="signup_form">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
@@ -58,13 +58,15 @@
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
                   <div class="col-sm-10">
-                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    <input id="npw" type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    <div class="pwcheck" style="color:red"></div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
                   <div class="col-sm-10">
-                    <input type="password" name="cpassword" class="form-control" id="inputPassword3" placeholder="Confirm Password">
+                    <input id="cpw" type="password" name="cpassword" class="form-control" id="inputPassword3" placeholder="Confirm Password">
+                    <div class="pwcheck1" style="color:green"></div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -124,7 +126,7 @@
             <li class="divider-vertical"></li>
             <li class="dropdown">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
-              <div class="dropdown-menu" style="padding: 15px; padding-bottom: 15px;">
+              <div id="lgDiv" class="dropdown-menu" style="padding: 15px; padding-bottom: 15px;">
   <!-- Login form here -->
                 <form action="/session/login" method="post" accept-charset="UTF-8">
                   <label for="">Email:</label>
@@ -133,8 +135,11 @@
                   <input id="user_password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
                   <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="remember_me" value="1" />
                   <label class="string optional" for="user_remember_me"> Remember me</label>
-
-                  <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
+        <!-- <div id="div1">
+        <h2 class="pink">Let jQuery AJAX Change This Text</h2>
+        <button>Get External Content</button>
+        </div> -->
+                  <input id ="lgbtn" class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
                 </form>
               </div>
             </li>
@@ -173,6 +178,5 @@
 
   <%= yield %>
 </div>
-
 </body>
 </html>
