@@ -6,6 +6,18 @@ require_relative '../models/flight'
 
 
 
+def destin_filter originSch_result, destin_city
+  route_sch = [];
+  originSch_result.scheduledResult.scheduled.each do |flight|
+    if flight.destination == destin_city
+      route_sch << flight
+    end
+  end
+  route_sch
+end
+
+
+
 def insert_flight flt_result
   time_filter = Flight.maximum(:actualdeparturetime)
   flt_result.each do |flight| #insert and populate flight database

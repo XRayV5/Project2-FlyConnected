@@ -26,7 +26,7 @@
                 <td class='item-stock'>#{airport['country']}</td>
                 <td class='item-qty'>#{airport['icao']}</td>
                 <td class='item-stock'>#{airport['timezone']}</td>
-                <td class='item-qty'><a href='/arpt_detail/#{airport.id}'>Detail</a></td>
+                <td class='item-qty'><a href='/arpt_detail/#{airport.id}?icao=#{airport['icao']}'>Detail</a></td>
               </tr>"%>
         <%end%>
       </tbody>

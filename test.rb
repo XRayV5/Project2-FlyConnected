@@ -12,10 +12,14 @@ username = 'ruixu0530'
 test = FlightXML2REST.new(username, ENV['FlightAPI'])
 # Enroute
 print "Aircraft en route to KSMO:\n"
-result = test.Scheduled(ScheduledRequest.new("YMML",'airline', 15, 0 ))
-p result.scheduledResult
+# result = test.Scheduled(ScheduledRequest.new("YMML",'airline', 15, 0 ))
+# p result.scheduledResult
 #result = test.AirportInfo(AirportInfoRequest.new('YMML'))
 # #p result.airportInfoResult
 # result = test.FlightInfo(FlightInfoRequest.new( 15,'CCA178'))
 # p result.flightInfoResult
+# result = test.Arrived(ArrivedRequest.new("YMML", 'airline', 15, 0))
+# p result.arrivedResult
+result = test.Departed(DepartedRequest.new("YMML", 'airline', 15, 0))
+p result.departedResult.departures
 binding.pry
