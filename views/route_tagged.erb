@@ -1,0 +1,26 @@
+<h2>You have <%=@myRoutes.count%> Tagged Routes</h2>
+<div class="arpt_tab">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Origin</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Schedule</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+
+    <%@myRoutes.each do |route|%>
+          <%= "<tr>
+                <td>
+                  <strong class='book-title'>#{route['origin']}</strong>
+                </td>
+                <td><strong class='book-title'>#{route['destination']}</strong></td>
+                <td class='item-qty'><a href='/flt_filter/route?flt_origin=#{route['origin_icao']}&flt_destin=#{route['destination_icao']}'>Check Flight Schedule</a></td>
+                <td class='item-qty'><a href='/route_untag/#{route['id']}'>Remove</a></td>
+              </tr>"%>
+        <%end%>
+      </tbody>
+</table>
+</div>

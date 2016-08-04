@@ -1,9 +1,4 @@
-
-
-
-<%filter = @arpt_result.first[@flag]%>
-
-<h2>Search Result for Airports: <%=filter%></h2>
+<h2><%=@taggedAirport.count%> Tagged Airports</h2>
 <div class="arpt_tab">
     <table>
       <thead>
@@ -13,11 +8,12 @@
           <th scope="col">ICAO</th>
           <th scope="col">Timezone</th>
           <th scope="col">Detail</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
 
-    <%@arpt_result.each do |airport|%>
+    <%@taggedAirport.each do |airport|%>
           <%= "<tr>
                 <td>
                   <strong class='book-title'>#{airport['name']}</strong>
@@ -26,7 +22,8 @@
                 <td class='item-stock'>#{airport['country']}</td>
                 <td class='item-qty'>#{airport['icao']}</td>
                 <td class='item-stock'>#{airport['timezone']}</td>
-                <td class='item-qty'><a href='/arpt_detail/#{airport.icao}?icao=#{airport['icao']}'>Detail</a></td>
+                <td class='item-qty'><a href='/arpt_detail/#{airport.id}?icao=#{airport['icao']}'>Detail</a></td>
+                <td class='item-qty'><a href='/arpt_untag/#{airport.id}'>Untag</a></td>
               </tr>"%>
         <%end%>
       </tbody>

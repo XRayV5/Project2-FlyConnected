@@ -20,16 +20,15 @@
                 <td class='item-stock'>#{flight.aircrafttype}</td>
                 <td>
                   <strong class='book-title'>#{flight.originName}(#{flight.origin})</strong>
-                  <span class='text-offset'>#{flight.destinationCity}</span>
+                  <span class='text-offset'>#{flight.originCity}</span>
                 </td>
                 <td>
-                  <strong class='book-title'>#{flight.destinationName}</strong>
-                  <span class='text-offset'>#{flight.destination}</span>
+                  <strong class='book-title'>#{flight.destinationName}(#{flight.destination})</strong>
+                  <span class='text-offset'>#{flight.destinationCity}</span>
                 </td>
-                <td class='item-stock'>#{Time.at(flight.actualdeparturetime)}</td>
+                <td class='item-stock'>#{Time.at(flight.filed_departuretime)}</td>
                 <td class='item-qty'>#{Time.at(flight.estimatedarrivaltime)}</td>
-                <td class='item-stock'>#{flight.filed_ete}</td>
-                <td class='item-qty'><a href='/flt_detail/#{flight.ident}'>Detail</a></td>
+                <td class='item-qty'><a href='/tag_flight/#{flight.ident}?origin=#{flight.originName}&destin=#{flight.destinationName}'>Tag flight</a></td>
               </tr>"%>
         <%end%>
       </tbody>

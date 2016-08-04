@@ -14,16 +14,37 @@ create table Airports(
 );
 
 create table users(
-  id SERIAL4 primary key,
+  id SERIAL4 primary key not null,
   email varchar(100) not null,
   password_digest varchar(500) not null,
   nickname varchar(100),
 );
 
 
+create table tags(
+  id SERIAL4 primary key not null,
+  user_id SERIAL4 references users(id) on delete cascade on update cascade,
+  airport_id SERIAL4 references airports(id) on delete cascade on update cascade
+);
 
 
+create table routes(
+  id SERIAL4 primary key,
+  origin varchar(50),
+  origin_icao varchar(50),
+  destination varchar(50),
+  destination_icao varchar(50),
+  user_id integer
+);
 
+
+create table Flights(
+  id SERIAL4 primary key,
+  ident varchar(50),
+  origin varchar(50),
+  destination varchar(50),
+  user_id
+);
 
 create table Flights(
   id SERIAL4 primary key,
@@ -45,6 +66,20 @@ create table Flights(
   originCity varchar(100),
   originName varchar(100),
   route varchar(2000)
+);
+--scheduled/departed/enroute/flight
+create table Flightlog(
+  id SERIAL4 primary key,
+  ident varchar(50),
+  departuretime integer, --filed or actual
+  estimatedarrivaltime integer, --
+  aircrafttype varchar(50),
+  destination varchar(50),
+  destinationCity varchar(100),
+  destinationName varchar(100),
+  origin varchar(50),
+  originCity varchar(100),
+  originName varchar(100)
 );
 
 

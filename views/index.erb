@@ -10,10 +10,11 @@
   <div class="tab-content">
     <!-- <div id="home" class="tab-pane fade in active">
     </div> -->
+
     <div id="menu1" class="tab-pane fade">
       <!-- Tab2 -->
       <div class="search">
-        <form action="/arpt_filter">
+        <form id="arpt_form" action="/arpt_filter">
           <fieldset>
              <legend>Search Airport</legend>
              <p>
@@ -24,8 +25,19 @@
                   <option value = "itta">ITTA</option>
                   <option value = "icao">ICAO</option>
                 </select>
-                <input type="text" name="arpt_query">
-                <button>Search</button>
+                <input id="arpt_input" type="text" name="arpt_query">
+                <div class="form-group">
+                  <div class="col-sm-10">
+                       <input type="checkbox" name="saved">Add this route to My Watch List
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Search</button>
+                    <span id="valcheck_flt" style="color:red"></span>
+                  </div>
+                </div>
+                <div id="valcheck" style="color:red"></div>
              </p>
           </fieldset>
         </form>
@@ -34,7 +46,7 @@
     <div id="menu2" class="tab-pane fade">
       <!-- Tab3 -->
       <div class="search">
-        <form action="/flt_filter" method="get">
+        <form id="flt_form" action="/flt_filter" method="get">
           <fieldset>
              <legend>By Flight Number/Airline</legend>
              <!-- <div class="form-group">
@@ -52,7 +64,7 @@
              <div class="form-group">
                <label for="inputPassword3" class="col-sm-2 control-label">Flight Number</label>
                <div class="col-sm-10">
-                 <input id="npw" type="text" name='flt_code' class="form-control" placeholder="Flight Number e.g QFA494">
+                 <input id="flt_Input" type="text" name='flt_code' class="form-control" placeholder="Flight Number e.g QFA494">
                </div>
              </div>
              <div class="form-group">
@@ -62,18 +74,35 @@
                </div>
              </div>
              <div class="form-group">
+               <div class="col-sm-10">
+                    <input type="checkbox" name="saved">Add this flight to My Watch List
+               </div>
+             </div>
+             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
                  <button type="submit" class="btn btn-default">Search</button>
+                 <span id="valcheck_flt" style="color:red"></span>
                </div>
              </div>
 
           </fieldset>
         </form>
 
-        <form action="/flt_filter/route" method="get">
+        <form id="route_from" action="/flt_filter/route" method="get">
           <fieldset>
              <legend>By Route</legend>
+
+
+
              <div class="form-group">
+               <div>
+                 <label>Search Option</label>
+                 <select id = "flt_opt" name='flt_by'>
+                   <option value = "airport">Airport Name</option>
+                   <option value = "icao">ICAO</option>
+                 </select>
+               </div>
+
                <label for="inputEmail3" class="col-sm-2 control-label">Origin</label>
                <div class="col-sm-10">
                  <input type="text" name='flt_origin' class="form-control"  placeholder="Origin City">
@@ -85,6 +114,12 @@
                  <input type="text" name='flt_destin' class="form-control" placeholder="Destination City">
                </div>
              </div>
+
+            <div class="form-group">
+              <div class="col-sm-10">
+                   <input type="checkbox" name="saved">Add this route to My Watch List
+              </div>
+            </div>
              <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
                  <button type="submit" class="btn btn-default">Search</button>

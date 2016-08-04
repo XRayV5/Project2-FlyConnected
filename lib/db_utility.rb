@@ -17,6 +17,46 @@ def destin_filter originSch_result, destin_city
 end
 
 
+def fetch_to_log flt_result
+  flt_result.each do |flight| #insert and populate flight database
+    record = Flightlog.new
+    begin
+          if flight.actualdeparturetime==0
+            record.departuretime = flight.filed_departuretime
+          else
+            record.departuretime = flight.actualdeparturetime
+          end
+    rescue NoMethodError
+          record.departuretime = flight.filed_departuretime
+    end
+
+
+
+    begin
+        if flight.actualarrivaltime==0
+          record.estimatedarrivaltime = flight.estimatedarrivaltime
+        else
+          record.estimatedarrivaltime = flight.actualarrivaltime
+        end
+    rescue NoMethodError
+      record.estimatedarrivaltime = flight.estimatedarrivaltime
+    end
+
+      record.ident = flight.ident
+      record.aircrafttype = flight.aircrafttype
+      record.destination = flight.destination
+      record.destinationcity = flight.destinationCity
+      record.destinationname = flight.destinationName
+      record.origin = flight.origin
+      record.origincity = flight.originCity
+      record.originname = flight.originName
+      record.save
+  end
+
+
+
+end
+
 
 def insert_flight flt_result
   time_filter = Flight.maximum(:actualdeparturetime)

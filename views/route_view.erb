@@ -21,12 +21,12 @@
             <span class='text-offset'>#{flight.ident}</span>
           </td>
           <td class='item-stock'>
-            <strong class='book-title'><a href='/orgin_detail/#{flight.origin}'>#{flight.originName}</a></strong>
+            <strong class='book-title'><a href='/arpt_detail/#{flight.origin}'>#{flight.originName}</a></strong>
             <span class='text-offset'>#{flight.originCity}</span>
           </td>
           <td class='item-stock'>#{flight.origin}</a></td>
           <td class='item-qty'>
-            <strong class='book-title'><a href='/orgin_detail/#{flight.destination}'>#{flight.destinationName}</a></strong>
+            <strong class='book-title'><a href='/arpt_detail/#{flight.destination}'>#{flight.destinationName}</a></strong>
             <span class='text-offset'>#{flight.destinationCity}</span>
           </td>
           <td class='item-stock'>#{Time.at(flight.filed_departuretime)}</td>

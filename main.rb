@@ -9,6 +9,10 @@ require_relative 'DB/db_config'
 require_relative 'models/airport'
 require_relative 'models/flight'
 require_relative 'models/user'
+require_relative 'models/flightlog'
+require_relative 'models/Route'
+require_relative 'models/Tag'
+
 
 require_relative 'lib/db_utility'
 
@@ -70,7 +74,15 @@ helpers do
       User.find(session[:user_id])
     end
 
-
+    def arpttags
+      User.find(current_user.id).tags.collect{|a| a.airport}.count if logged_in?
+    end
+    def routetags
+      Route.where("user_id = #{current_user.id}").count if logged_in?
+    end
+    def flttags
+      Flight.where("user_id = #{current_user.id}").count if logged_in?
+    end
 
 
 
@@ -117,8 +129,11 @@ end
 
 get '/' do
   #@airports = Airport.where("country = 'Australia'")
+
   erb :index
 end
+
+
 
 get '/arpt_filter' do
     @flag = params['arpt_by']
@@ -137,42 +152,106 @@ end
 get '/flt_filter' do
     callsign = params['flt_code']
     airline = params['flt_Airline']
-    des_city = params['flt_destin']
-    ori_city = params['flt_origin']
     if callsign != ""
       @flt_result = flt_awr.FlightInfo(FlightInfoRequest.new(15,callsign))
       records = @flt_result.flightInfoResult.flights
       # binding.pry
-      insert_flight(records)
-          erb :flights_view
+      fetch_to_log records
+
+      erb :flights_view
     end
 
 end
 
+get '/tag_flight/:ident' do
+  theFlight = Flight.new
+  theFlight.ident = params[:ident]
+  theFlight.origin = params[:origin]
+  theFlight.destination = params[:destin]
+  theFlight.user_id = current_user.id
+  theFlight.save
 
-get '/flt_filter/route' do
-  des_city = params['flt_destin']
-  ori_city = params['flt_origin']
-  @is_route = false;
-  if ori_city != ""&& des_city == ""
-    @route_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_origin], 'airline', 15, 0 ))
-  elsif ori_city != ""&& des_city != ""
-    route_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_origin], 'airline', 15, 0 ))
-    # destination filter method(@originSch_result)
-    @route_result = destin_filter(route_result, des_city)
-    @is_route = true;
-  end
-  erb :route_view
+  @myFlights = Flight.where("user_id = #{current_user.id}")
+
+  erb :flight_tags
 end
 
-get '/arpt_detail/:id' do
+get '/tag_flight' do
+  @myFlights = Flight.where("user_id = #{current_user.id}")
+  erb :flight_tags
+end
+
+get '/flight_untag/:id' do
+  untag_flt = Flight.find_by(id: params[:id])
+  Flight.delete(untag_flt)
+  redirect to '/tag_flight'
+end
+
+get '/flt_filter/route' do
+    des_city = params['flt_destin']
+    ori_city = params['flt_origin']
+    query_type = params['flt_by']
+    saved = params[:saved]
+    @is_route = false;
+    if query_type != 'airport'
+        if ori_city != ""&& des_city == ""
+          @route_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_origin], 'airline', 15, 0 ))
+        elsif ori_city != ""&& des_city != ""
+          route_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_origin], 'airline', 15, 0 ))
+          # destination filter method(@originSch_result)
+          @route_result = destin_filter(route_result, des_city)
+          @is_route = true;
+        end
+
+        if saved == "on"&&logged_in?
+          theRoute = Route.new
+          theRoute.origin_icao = ori_city
+          theRoute.origin = Airport.find_by(icao: ori_city).name
+          theRoute.destination_icao = des_city
+          theRoute.destination = Airport.find_by(icao: des_city).name
+          theRoute.user_id = current_user.id
+          theRoute.save
+        else
+          erb :fail
+        end
+    else
+        #search by name here
+        if ori_city != ""&& des_city == ""
+          ori_result = Airport.where("name LIKE ?", "%#{ori_city}%").first.icao
+        elsif ori_city != ""&& des_city != ""
+          ori_result = Airport.where("name LIKE ?", "%#{ori_city}%").first.icao
+          des_result = Airport.where("name LIKE ?", "%#{des_city}%").first.icao
+
+          route_result = flt_awr.Scheduled(ScheduledRequest.new(ori_result, 'airline', 15, 0 ))
+          @route_result = destin_filter(route_result, des_result)
+          @is_route = true;
+        end
+    end
+    erb :route_view
+end
+
+get "/tagged_route" do
+  @myRoutes = Route.where("user_id = #{current_user.id}")
+  erb :route_tagged
+end
+
+get '/route_untag/:id' do
+  untag = Route.where("id = #{params[:id]}")
+  Route.delete(untag)
+  redirect to '/tagged_route'
+end
+
+get '/arpt_detail/:icao' do
   if logged_in?
-  	@theAirport = Airport.find(params[:id])
+  	@theAirport = Airport.find_by(icao: params[:icao])
   	# binding.pry
     @Arrived = api_handler('Arrived', params[:icao])
     @Departed = api_handler('Departed', params[:icao])
+    fetch_to_log @Departed
     @Scheduled = api_handler('Scheduled', params[:icao])
+    fetch_to_log @Scheduled
     @Enroute = api_handler('Enroute', params[:icao])
+    fetch_to_log @Enroute
     #binding.pry
     erb :airport_specs
   else
@@ -180,19 +259,41 @@ get '/arpt_detail/:id' do
   end
 end
 
+
+#add airport tags
+get '/arpt_watchlist/:id' do
+  theTag = Tag.new
+  theTag.user_id = current_user.id
+  theTag.airport_id = params[:id]
+  theTag.save
+  @taggedAirport = User.find(current_user.id).tags.collect{|a| a.airport}
+  erb :airportTags
+end
+
+get '/arpt_watchlist' do
+  @taggedAirport = User.find(current_user.id).tags.collect{|a| a.airport}
+  erb :airportTags
+end
+
+get '/arpt_untag/:id' do
+  untag = Tag.where("user_id=#{current_user.id} and airport_id = #{params[:id]}")
+  Tag.delete(untag)
+  redirect to '/arpt_watchlist'
+end
+
+
+
 # Need session check
 get '/orgin_detail/:icao' do
   if logged_in?
   	@theAirport = Airport.find_by(icao: params[:icao])
-  	# binding.pry
-    @Arrived = api_handler('Arrived', params[:icao])
 	erb :airport_specs
   else
     erb :fail
   end
 end
 
-get '/enroute/:icao' do
-  @incoming = flt_awr.Enroute(EnrouteRequest.new(params[:icao],'airline', 15, 0 ))
-  erb :inbound_traffic
-end
+# get '/enroute/:icao' do
+#   @incoming = flt_awr.Enroute(EnrouteRequest.new(params[:icao],'airline', 15, 0 ))
+#   erb :inbound_traffic
+# end

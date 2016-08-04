@@ -20,10 +20,10 @@
 </script>
 
       <ul class="navigation_sidebar">
-        <li class="nav-item"><a href="#">Home</a></li>
-        <li class="nav-item"><a href="#">Portfolio</a></li>
-        <li class="nav-item"><a href="#">About</a></li>
-        <li class="nav-item"><a href="#">Blog</a></li>
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/arpt_watchlist">Airports Tagged</a></li>
+        <li class="nav-item"><a href="/tagged_route">Routes Tagged</a></li>
+        <li class="nav-item"><a href="/tag_flight">Fights Tagged</a></li>
         <li class="nav-item"><a href="#">Contact</a></li>
       </ul>
 
@@ -105,7 +105,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div id="logo"><a class="navbar-brand"><h1>Fly Connected</h1></a></div>
+        <div id="logo"><a class="navbar-brand" href="/"><h1>Fly Connected</h1></a></div>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <!-- <form class="navbar-form navbar-right">
@@ -135,10 +135,7 @@
                   <input id="user_password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
                   <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="remember_me" value="1" />
                   <label class="string optional" for="user_remember_me"> Remember me</label>
-        <!-- <div id="div1">
-        <h2 class="pink">Let jQuery AJAX Change This Text</h2>
-        <button>Get External Content</button>
-        </div> -->
+
                   <input id ="lgbtn" class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
                 </form>
               </div>
@@ -151,16 +148,12 @@
             <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><strong class="caret"></strong></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 15px;">
 <!-- Login form here -->
-              <form action="/session/login" method="post" accept-charset="UTF-8">
-                <label for="">Email:</label>
-                <input id="user_username" style="margin-bottom: 15px;" type="text" name="email" size="30" />
-                <label for="">Password:</label>
-                <input id="user_password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
-                <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="remember_me" value="1" />
-                <label class="string optional" for="user_remember_me"> Remember me</label>
-
-                <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
-              </form>
+              <div class="profile">
+                <span><%=current_user.nickname%></span>
+                <div><a href="/arpt_watchlist">Airports Tagged:<%=arpttags%></a></div>
+                <div><a href="/tagged_route">Routes Tagged:<%=routetags%></a></div>
+                <div><a href="/tag_flight">Airports Tagged:<%=flttags%></a></div>
+              </div>
             </div>
           </li>
 
@@ -178,5 +171,6 @@
 
   <%= yield %>
 </div>
+  <script src="/javascripts/application.js"></script>
 </body>
 </html>
