@@ -1,5 +1,7 @@
 <!-- <%require 'date'%> -->
-<%if @is_route == true%>
+<%
+begin
+if @is_route == true%>
 
   <h1>Flight Schedule For Route <%="#{@route_result[0].originName} To #{@route_result[0].destinationName}"%></h1>
   <table>
@@ -72,4 +74,8 @@
     <%end%>
   </tbody>
 </table>
-<%end%>
+<%end
+  rescue NoMethodError
+    redirect to '/fail'
+  end
+%>

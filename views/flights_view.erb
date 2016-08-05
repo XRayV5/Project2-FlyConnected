@@ -1,4 +1,4 @@
-
+<%begin%>
 <h2>Search Result for Flight: <%=@flt_result.flightInfoResult.flights[0].ident%></h2>
 <div class="arpt_tab">
     <table>
@@ -30,7 +30,11 @@
                 <td class='item-qty'>#{Time.at(flight.estimatedarrivaltime)}</td>
                 <td class='item-qty'><a href='/tag_flight/#{flight.ident}?origin=#{flight.originName}&destin=#{flight.destinationName}'>Tag flight</a></td>
               </tr>"%>
-        <%end%>
+        <%end
+          rescue
+            redirect to '/fail'
+          end
+        %>
       </tbody>
 </table>
 </div>

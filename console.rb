@@ -32,9 +32,9 @@ print "Aircraft en route to KSMO:\n"
 # p result.departedResult.departures
 # fetch_to_log result.departedResult.departures
 
-# result = test.FlightInfo(FlightInfoRequest.new( 15,'CCA178'))
-# p result.flightInfoResult.flights
-# fetch_to_log result.flightInfoResult.flights
+result = test.FlightInfo(FlightInfoRequest.new( 15,'CCA177'))
+p result.flightInfoResult.flights
+fetch_to_log result.flightInfoResult.flights
 
 # result = test.Scheduled(ScheduledRequest.new("YMML",'airline', 15, 0 ))
 # p result.scheduledResult.scheduled

@@ -128,8 +128,6 @@ end
 
 
 get '/' do
-  #@airports = Airport.where("country = 'Australia'")
-
   erb :index
 end
 
@@ -137,15 +135,16 @@ end
 
 get '/arpt_filter' do
     @flag = params['arpt_by']
-  if @flag == 'city'
-    @arpt_result = Airport.where("city LIKE ?", "%#{params['arpt_query']}%")
-  elsif @flag == 'icao' && params['arpt_query'].length < 4
-    @arpt_result = Airport.where("icao LIKE ?", "#{params['arpt_query']}%")
-  elsif @flag == 'itta' && params['arpt_query'].length < 4
-    @arpt_result = Airport.where("itta LIKE ?", "#{params['arpt_query']}%")
-  else
-    @arpt_result = Airport.where("#{params['arpt_by']} = '#{params['arpt_query']}'")
-  end
+      if @flag == 'city'
+        @arpt_result = Airport.where("city LIKE ?", "%#{params['arpt_query']}%")
+      elsif @flag == 'icao' && params['arpt_query'].length < 4
+        @arpt_result = Airport.where("icao LIKE ?", "#{params['arpt_query']}%")
+      elsif @flag == 'itta' && params['arpt_query'].length < 4
+        @arpt_result = Airport.where("itta LIKE ?", "#{params['arpt_query']}%")
+      else
+        @arpt_result = Airport.where("#{params['arpt_by']} = '#{params['arpt_query']}'")
+      end
+
     erb :airports_view
 end
 
@@ -153,32 +152,41 @@ get '/flt_filter' do
     callsign = params['flt_code']
     airline = params['flt_Airline']
     if callsign != ""
+      begin
       @flt_result = flt_awr.FlightInfo(FlightInfoRequest.new(15,callsign))
       records = @flt_result.flightInfoResult.flights
       # binding.pry
       fetch_to_log records
-
+      rescue
+      end
       erb :flights_view
     end
 
 end
 
 get '/tag_flight/:ident' do
-  theFlight = Flight.new
-  theFlight.ident = params[:ident]
-  theFlight.origin = params[:origin]
-  theFlight.destination = params[:destin]
-  theFlight.user_id = current_user.id
-  theFlight.save
+  if logged_in?
+    theFlight = Flight.new
+    theFlight.ident = params[:ident]
+    theFlight.origin = params[:origin]
+    theFlight.destination = params[:destin]
+    theFlight.user_id = current_user.id
+    theFlight.save
+    @myFlights = Flight.where("user_id = #{current_user.id}")
 
-  @myFlights = Flight.where("user_id = #{current_user.id}")
-
-  erb :flight_tags
+    erb :flight_tags
+  else
+    erb :fail
+  end
 end
 
 get '/tag_flight' do
-  @myFlights = Flight.where("user_id = #{current_user.id}")
-  erb :flight_tags
+  if logged_in?
+    @myFlights = Flight.where("user_id = #{current_user.id}")
+    erb :flight_tags
+  else
+    erb :fail
+  end
 end
 
 get '/flight_untag/:id' do
@@ -193,6 +201,8 @@ get '/flt_filter/route' do
     query_type = params['flt_by']
     saved = params[:saved]
     @is_route = false;
+
+  begin
     if query_type != 'airport'
         if ori_city != ""&& des_city == ""
           @route_result = flt_awr.Scheduled(ScheduledRequest.new(params[:flt_origin], 'airline', 15, 0 ))
@@ -211,8 +221,6 @@ get '/flt_filter/route' do
           theRoute.destination = Airport.find_by(icao: des_city).name
           theRoute.user_id = current_user.id
           theRoute.save
-        else
-          erb :fail
         end
     else
         #search by name here
@@ -225,14 +233,32 @@ get '/flt_filter/route' do
           route_result = flt_awr.Scheduled(ScheduledRequest.new(ori_result, 'airline', 15, 0 ))
           @route_result = destin_filter(route_result, des_result)
           @is_route = true;
+
+          if saved == "on"&&logged_in?
+            theRoute = Route.new
+            theRoute.origin_icao = ori_result
+            theRoute.origin = Airport.find_by(icao: ori_result).name
+            theRoute.destination_icao = des_result
+            theRoute.destination = Airport.find_by(icao: des_result).name
+            theRoute.user_id = current_user.id
+            theRoute.save
+          end
+
         end
     end
     erb :route_view
+  rescue NoMethodError, SyntaxError
+    erb :fail
+  end
 end
 
 get "/tagged_route" do
-  @myRoutes = Route.where("user_id = #{current_user.id}")
-  erb :route_tagged
+  if logged_in?
+    @myRoutes = Route.where("user_id = #{current_user.id}")
+    erb :route_tagged
+  else
+    erb :fail
+  end
 end
 
 get '/route_untag/:id' do
@@ -262,17 +288,25 @@ end
 
 #add airport tags
 get '/arpt_watchlist/:id' do
-  theTag = Tag.new
-  theTag.user_id = current_user.id
-  theTag.airport_id = params[:id]
-  theTag.save
-  @taggedAirport = User.find(current_user.id).tags.collect{|a| a.airport}
-  erb :airportTags
+  if logged_in?
+    theTag = Tag.new
+    theTag.user_id = current_user.id
+    theTag.airport_id = params[:id]
+    theTag.save
+    @taggedAirport = User.find(current_user.id).tags.collect{|a| a.airport}
+    erb :airportTags
+  else
+    erb :fail
+  end
 end
 
 get '/arpt_watchlist' do
-  @taggedAirport = User.find(current_user.id).tags.collect{|a| a.airport}
-  erb :airportTags
+  if logged_in?
+    @taggedAirport = User.find(current_user.id).tags.collect{|a| a.airport}
+    erb :airportTags
+  else
+    erb :fail
+  end
 end
 
 get '/arpt_untag/:id' do
@@ -282,16 +316,18 @@ get '/arpt_untag/:id' do
 end
 
 
-
-# Need session check
-get '/orgin_detail/:icao' do
-  if logged_in?
-  	@theAirport = Airport.find_by(icao: params[:icao])
-	erb :airport_specs
-  else
-    erb :fail
-  end
+get '/fail' do
+  erb :fail
 end
+# Need session check
+# get '/orgin_detail/:icao' do
+#   if logged_in?
+#   	@theAirport = Airport.find_by(icao: params[:icao])
+# 	erb :airport_specs
+#   else
+#     erb :fail
+#   end
+# end
 
 # get '/enroute/:icao' do
 #   @incoming = flt_awr.Enroute(EnrouteRequest.new(params[:icao],'airline', 15, 0 ))

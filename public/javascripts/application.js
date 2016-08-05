@@ -41,13 +41,24 @@ $(document).ready(function () {
 
   $( "#flt_form" ).submit(function( event ) {
     if ( !validateInput($( "#flt_Input" ).val()) ) {
-      $( "#valcheck_flt" ).text( "Please enter Flight Number." ).show();
+      $( "#valcheck_flt" ).html( "Please enter Flight Number." ).show();
       event.preventDefault();
       return false;
     } else {
       event.target.submit();
     }
   });
+
+  $( "#route_from" ).submit(function( event ) {
+    if ( !(validateInput($( "#rt_ori" ).val())) ) {
+      $( "#valcheck_rt" ).html( "Please enter Destination/Origin." ).show();
+      event.preventDefault();
+      return false;
+    } else {
+      event.target.submit();
+    }
+  });
+
 });
 
 

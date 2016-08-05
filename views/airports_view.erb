@@ -1,7 +1,13 @@
 
 
 
-<%filter = @arpt_result.first[@flag]%>
+<%
+  begin
+    filter = @arpt_result.first[@flag]
+  rescue NoMethodError
+    redirect to '/fail'
+  end
+%>
 
 <h2>Search Result for Airports: <%=filter%></h2>
 <div class="arpt_tab">

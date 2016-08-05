@@ -7,13 +7,16 @@
           <th scope="col">Origin</th>
           <th scope="col">Destination</th>
           <th scope="col">Schedule</th>
-          <th scope="col"></th>
+          <th scope="col">ManageTag</th>
         </tr>
       </thead>
       <tbody>
 
     <%@myFlights.each do |flight|%>
           <%= "<tr>
+                <td>
+                  <strong class='book-title'>#{flight['ident']}</strong>
+                </td>
                 <td>
                   <strong class='book-title'>#{flight['origin']}</strong>
                 </td>
