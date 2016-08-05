@@ -1,5 +1,5 @@
-#Flight Ray-Dar
-- select and show airport info of (v1.0 Australia)
+#FlyConnected
+- select and show airport info of (v1.0)
 - show flight info of all enroute flights to an airport
 - flight/airport data visualization with google map API
 
